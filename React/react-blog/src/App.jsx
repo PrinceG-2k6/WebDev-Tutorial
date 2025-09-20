@@ -4,6 +4,8 @@ import EventFunction from './myComp/EventFunction';
 import { useState } from 'react';
 import Counter from './myComp/Counter';
 import ElseIf from './myComp/ElseIf';
+import StyledHead from './myComp/Styled';
+
 function App(){
   const name ="Prince Gupta";
   const [fruit,setFruit]=useState("apple");
@@ -23,6 +25,8 @@ function App(){
     </div>
     <Counter/>
     <ElseIf display={false}/>
+    <br /><br />
+    <StyledHead/>
     </>)
 
   // return createElement("div",{id:"rootdiv"},createElement("h1",{id:"heading"},"This is Heading Tag"));
