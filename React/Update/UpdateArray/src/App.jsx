@@ -1,35 +1,64 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [data, setData] = useState([
+    'anil', 'sam', 'peter', 'tony'
+  ]);
+
+  const [dataDetails, setDataDetails] = useState([
+    { name: "Prince", age: 18 },
+    { name: "Om",     age: 23 },
+    { name: "Gaurav", age: 21 },
+    { name: "Adii",   age: 12 },
+  ]);
+
+  // update the last name in data[]
+  const handleUser = (name) => {
+    setData(prev => {
+      const updated = [...prev];
+      updated[updated.length - 1] = name;
+      return updated;
+    });
+  };
+
+  // update the last user's age in dataDetails[]
+  const handleAge = (age) => {
+    setDataDetails(prev => {
+      const updated = [...prev];
+      updated[updated.length - 1] = {
+        ...updated[updated.length - 1],
+        age: Number(age)
+      };
+      return updated;
+    });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>Updating Array in State</h1>
 
-export default App
+      <input
+        type="text"
+        placeholder="enter last user name"
+        onChange={(e) => handleUser(e.target.value)}
+      />
+      {data.map((item, index) => (
+        <h3 key={index}>{item}</h3>
+      ))}
+
+      <hr />
+
+      <input
+        type="number"
+        placeholder="enter last user age"
+        onChange={(e) => handleAge(e.target.value)}
+      />
+      {dataDetails.map((item, index) => (
+        <h4 key={index}>
+          {item.name}, {item.age}
+        </h4>
+      ))}
+    </div>
+  );
+}
