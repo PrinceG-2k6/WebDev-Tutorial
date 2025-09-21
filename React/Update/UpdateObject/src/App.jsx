@@ -13,8 +13,10 @@ export default function App() {
   });
 
   const handleName = (val) => {
-    data.name = val;
-    setData({ ...data });
+    setData({ ...data, name: val });
+  };
+  const handleCity = (val) => {
+    setData({ ...data, address: { ...data.address, city: val } });
   };
 
   return (
@@ -28,8 +30,8 @@ export default function App() {
       <br /><br />
       <input
         type="text"
-        placeholder="update name"
-        onChange={(event) => handleName(event.target.value)}
+        placeholder="update City"
+        onChange={(event) => handleCity(event.target.value)}
       />
       <hr />
       <h2>Name: {data.name}</h2>
