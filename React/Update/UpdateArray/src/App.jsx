@@ -14,7 +14,7 @@ export default function App() {
   ]);
 
   // update the last name in data[]
-  const handleUser = (name) => {
+  const handleUser = () => {
     setData(prev => {
       const updated = [...prev];
       updated[updated.length - 1] = name;
