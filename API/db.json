@@ -1,9 +1,4 @@
 {
-  "users":{
-    "name":"prince",
-    "email":"prince@test.com",
-    "age":19
-  },
   "users":[{
     "name":"prince",
     "email":"prince@test.com",
