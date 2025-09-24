@@ -1,33 +1,46 @@
-import { useState } from 'react'
+import { useActionState, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const HandleSubmit = async(previousData,formData)=>{
+    let name = formData.get('name');
+    let password =formData.get('password');
+
+    await new Promise(res=>setTimeout(res,3000));
+    console.log("HandleSubmit called" , name,password);
+
+    if(name&&password){
+      return{message:"Data Submitted", name ,password}
+    }
+    else{
+     return{error:"Failed to upload"} 
+    }
+  }
+
+  const [data,action,pending] =useActionState(HandleSubmit,undefined);
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>useActionState Hook in Js</h1>
+        <form action={action}>
+          <input type="text" name="name"  id="name" placeholder='Enter Name' /><br /><br />
+          <input type="password" name="password" id="password" placeholder='Enter password'/><br /> <br />
+          <button disabled={pending}>{!pending? "Submit ":" Submitting....."}</button>
+        </form>
+        {
+          data?.message && <span style={{color:"green"}}>{data?.message}</span>
+        }
+        {
+          data?.error && <span style={{color:"red"}}>{data?.error}</span>
+        }
+
+        <h3>Name :{data?.name}</h3>
+        
+        <h3>Password :{data?.password}</h3>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
