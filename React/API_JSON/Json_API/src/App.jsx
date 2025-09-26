@@ -1,33 +1,52 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    getUserData();
+  },[]);
+
+  async function getUserData() {
+    const url = "http://localhost:3000/users";
+    let response = await fetch(url);
+    response = await response.json();
+    console.log(response);
+    setUserData(response);
+    setLoading(false);
+  }
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Itegrate JSON server API and Loader</h1>
+        <ul className='user-list'>
+          <li style={{fontWeight:800,fontSize:30}}>Nname</li>
+          <li style={{fontWeight:800,fontSize:30}}>Email</li>
+          <li style={{fontWeight:800,fontSize:30}}>Age</li>
+
+        </ul>
+        {!loading?
+          userData && userData.map((user) => (
+            <div>
+              <hr />
+            <ul className='user-list'>
+              
+              <li>{user.name}</li>
+              <li>{user.email}</li>
+              <li>{user.age}</li>
+              
+
+            </ul>
+            </div>
+          )):<h1>DATA LOADING.....</h1>
+        }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
