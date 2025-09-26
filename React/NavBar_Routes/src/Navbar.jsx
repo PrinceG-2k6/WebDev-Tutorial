@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import './header.css'
 const Navbar = () => {
   return (
@@ -13,10 +13,10 @@ const Navbar = () => {
                     <Link className='link' to="/">Home</Link>
                 </li>
                 <li>
-                    <Link className='link' to="/login">Login</Link>
+                    <Link className='link' to="/in/user/login">Login</Link>
                 </li>
                 <li>
-                    <Link className='link' to="/about">About</Link>
+                    <Link className='link' to="/in/user/about">About</Link>
                 </li>
                 <li>
                     <Link className='link' to="/college">College</Link>
@@ -24,7 +24,7 @@ const Navbar = () => {
                 
             </ul>
         </div>
-      
+      <Outlet/>
     </div>
   )
 }
