@@ -8,6 +8,11 @@ import About from './About'
 import Navbar from './Navbar'
 import Login from './Login'
 import PageNotFound from './PageNotFound'
+import College from './College'
+import Student from './Student'
+import Department from './Department'
+import Info from './Info'
+
 
 function App() {
 
@@ -18,6 +23,11 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path="/about" element={<About/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
+        <Route path="/college" element={<College/>}>
+          <Route path="student" element={<Student/>}/>
+          <Route path="department" element={<Department/>}/>
+          <Route path="info" element={<Info/>}/>
+        </Route>
         {/* <Route path="/*" element={<PageNotFound/>}></Route> */}
         <Route path="/*" element={<Navigate to="/login"/>}/>
 
