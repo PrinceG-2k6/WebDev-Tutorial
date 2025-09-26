@@ -1,30 +1,40 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import './header.css'
 const Navbar = () => {
   return (
     <div className='header'>
         <div>
-            <Link className='link' to="/"><h2>logo</h2></Link>
+            <NavLink className='link' to="/"><h2>logo</h2></NavLink>
         </div>
         <div>
             <ul>
                 <li>
-                    <Link className='link' to="/">Home</Link>
+                    <NavLink className='link' to="/">Home</NavLink>
                 </li>
                 <li>
-                    <Link className='link' to="/in/user/login">Login</Link>
+                    <NavLink className='link' to="/in/user/login">Login</NavLink>
                 </li>
                 <li>
-                    <Link className='link' to="/in/user/about">About</Link>
+                    <NavLink className='link' to="/in/user/about">About</NavLink>
                 </li>
                 <li>
-                    <Link className='link' to="/college">College</Link>
+                    <NavLink className='link' to="/college">College</NavLink>
+                </li>
+                <li>
+                    <NavLink className='link' to="/users">User</NavLink>
+                    
+                </li>
+                <li>
+                    <NavLink className='link' to="/users/list">List</NavLink>
+                    
                 </li>
                 
             </ul>
+            
         </div>
-      <Outlet/>
+        
+      
     </div>
   )
 }
