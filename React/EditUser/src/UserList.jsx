@@ -44,9 +44,8 @@ const UserList = () => {
                                 <li>{user.age}</li>
                                 <li>{user.email}</li>
                             </ul>
-                            <hr />
                         </div>
-                    )) : null
+                    )) : "Data Loading"
             }
         </div>
     )

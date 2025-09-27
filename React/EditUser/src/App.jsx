@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import UserList from './UserList'
 import UserAdd from './UserAdd'
-// import './App.css'
+import './App.css'
 
 function App() {
 
@@ -12,8 +12,8 @@ function App() {
     <>
       <div >
         <ul className='NavList'>
-          <li><NavLink to="/">List</NavLink></li>
-          <li><NavLink to="/add">Add User</NavLink></li>
+          <li><NavLink to="/" style={{textDecoration:"none"}}>List</NavLink></li>
+          <li><NavLink to="/add" style={{textDecoration:"none"}}>Add User</NavLink></li>
         </ul>
 
         <Routes>
