@@ -21,15 +21,7 @@ const EditUser = () => {
     getUserData();
   }, [id]);
 
-  const updateUser = async () => {
-    await fetch(`${url}/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, age, email })
-    });
-    alert("User updated");
-    navigate("/");
-  };
+  
 
   return (
     <div>
