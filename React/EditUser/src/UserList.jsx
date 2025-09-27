@@ -18,14 +18,14 @@ const UserList = () => {
         setUserData(response);
         setLoading(false);
     }
-    // const deleteUser = async(id)=>{
-    //     let response = await fetch(url+"/"+id,{
-    //         method:"delete",
+    const deleteUser = async(id)=>{
+        let response = await fetch(url+"/"+id,{
+            method:"delete",
 
-    //     });
-    //     setUserData(response);
-    //     setLoading(false);
-    // }
+        });
+        setUserData(response);
+        setLoading(false);
+    }
 
     return (
         <div>
@@ -33,6 +33,7 @@ const UserList = () => {
                 <li>Name</li>
                 <li>Age</li>
                 <li>Email</li>
+                <li>Modify</li>
             </ul>
             {
                 !loading ?
@@ -43,6 +44,7 @@ const UserList = () => {
                                 <li>{user.name}</li>
                                 <li>{user.age}</li>
                                 <li>{user.email}</li>
+                                <li><button onClick={deleteUser}>Delete</button></li>
                             </ul>
                         </div>
                     )) : "Data Loading"

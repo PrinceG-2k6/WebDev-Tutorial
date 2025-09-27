@@ -17,8 +17,8 @@ function App() {
         </ul>
 
         <Routes>
-          <Route path='/' element={<UserList></UserList>}></Route>
-          <Route path='/' element={<UserAdd></UserAdd>}></Route>
+          <Route path='/' element={<UserList/>}></Route>
+          <Route path='/add' element={<UserAdd/>}></Route>
         </Routes>
 
       </div>
