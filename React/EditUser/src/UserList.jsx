@@ -23,8 +23,11 @@ const UserList = () => {
             method:"delete",
 
         });
-        setUserData(response);
-        setLoading(false);
+        response = await response.json();
+        if(response){
+            alert("Record Deleted");
+            getUserData();
+        }
     }
 
     return (
@@ -44,7 +47,7 @@ const UserList = () => {
                                 <li>{user.name}</li>
                                 <li>{user.age}</li>
                                 <li>{user.email}</li>
-                                <li><button onClick={deleteUser}>Delete</button></li>
+                                <li><button onClick={()=>deleteUser(user.id)}>Delete</button></li>
                             </ul>
                         </div>
                     )) : "Data Loading"
