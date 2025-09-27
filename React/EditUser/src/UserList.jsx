@@ -1,11 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const UserList = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+    const [userData, setUserData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+    const url = "http://localhost:3000/users";
+
+    useEffect(() => {
+        setLoading(true);
+        getUserData();
+    }, []);
+
+    const getUserData = async () => {
+        let response = await fetch(url);
+        response = await response.json();
+        setUserData(response);
+        setLoading(false);
+    }
+    // const deleteUser = async(id)=>{
+    //     let response = await fetch(url+"/"+id,{
+    //         method:"delete",
+
+    //     });
+    //     setUserData(response);
+    //     setLoading(false);
+    // }
+
+    return (
+        <div>
+            <ul className='user-list user-list-head'>
+                <li>Name</li>
+                <li>Age</li>
+                <li>Email</li>
+            </ul>
+            {
+                !loading ?
+                    userData.map((user) => (
+                        <div>
+                            <hr />
+                            <ul key={user.id} className='user-list'>
+                                <li>{user.name}</li>
+                                <li>{user.age}</li>
+                                <li>{user.email}</li>
+                            </ul>
+                            <hr />
+                        </div>
+                    )) : null
+            }
+        </div>
+    )
 }
 
 export default UserList
