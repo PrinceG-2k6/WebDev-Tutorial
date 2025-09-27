@@ -19,7 +19,7 @@ const UserAdd = () => {
     }
 
   return (
-    <div>
+    <div style={{textAlign:"center"}} >
       <h1>Add New user</h1>
       <input type="text" placeholder='Enter Name' onChange={(e)=>setName(e.target.value)} />
       <br /><br />

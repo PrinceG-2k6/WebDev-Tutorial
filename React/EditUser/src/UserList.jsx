@@ -30,13 +30,17 @@ const UserList = () => {
         }
     }
 
+    const editUser=(id)=>{
+        navigate("/edit/"+id);
+    }
+
     return (
-        <div>
+        <div style={{textAlign:"center"}}>
             <ul className='user-list user-list-head'>
                 <li>Name</li>
                 <li>Age</li>
                 <li>Email</li>
-                <li>Modify</li>
+                <li>Action</li>
             </ul>
             {
                 !loading ?
@@ -47,7 +51,9 @@ const UserList = () => {
                                 <li>{user.name}</li>
                                 <li>{user.age}</li>
                                 <li>{user.email}</li>
-                                <li><button onClick={()=>deleteUser(user.id)}>Delete</button></li>
+                                <li><button onClick={()=>deleteUser(user.id)}>Delete</button>
+                                    <button onClick={()=>editUser(user.id)}>Edit</button>
+                                </li>
                             </ul>
                         </div>
                     )) : "Data Loading"
