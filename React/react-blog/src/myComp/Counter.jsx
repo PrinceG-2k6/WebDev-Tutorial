@@ -7,7 +7,7 @@ const Counter = () => {
 
   return (
     <>  
-       
+        <h1>DISPLAY TOGGLE</h1>
         <button onClick={()=>setDisplay(!display)}>Togggle</button>
         {display?
         <div>
