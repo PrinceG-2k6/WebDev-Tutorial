@@ -1,65 +1,56 @@
-import { useState } from 'react'
+import { useActionState } from 'react'
 import './App.css'
 
 function App() {
-  const [name, setName] = useState('');
-  const [nameErr, setNameErr] = useState("");
 
-  const [pass, setPass] = useState('');
-  const [passErr, setPassErr] = useState("");
+  const handleLogin = (prevData, formData) => {
+    let name = formData.get("name");
+    let pass = formData.get("Pass");
+    let regex = /^[A-Z0-9]+$/i;
 
-  const handleName = (e) => {
-    const value = e.target.value;
-    setName(value);
-    if (value.length > 5) {
-      setNameErr("The name should contain at most 5 letters");
-    } else {
-      setNameErr("");
+    if (!name || name.length > 5) {
+      return { error: "Name Should not be greater than 5 Character" };
+    }
+    else if (!regex.test(pass)) {
+      return { error: "Password Should Only contain Aplhabets and numbers" };
+    }
+    else {
+      return { message: "Login Done" }
     }
   }
 
-  const handlePass = (e) => {
-    const value = e.target.value;
-    setPass(value);
-    const regex = /^[A-Z0-9]+$/i; // only letters and numbers
-    if (regex.test(value)) {
-      setPassErr("");
-    } else {
-      setPassErr("The password should contain only alphabets and numbers");
-    }
-  }
-
+  const [data, action, pending] = useActionState(handleLogin)
   return (
     <>
-      <form>
+      <h1>Validation Using useActionState in React</h1>
+      {
+        data?.message && <span style={{ color: "green" }}>{data?.message}</span>
+      }
+      {
+        data?.error && <span style={{ color: "red" }}>{data?.error}</span>
+      }
+      <form action={action}>
         <label htmlFor="name">Name : </label>
         <input
-          className={nameErr?"errorbox" :null}
+          name='name'
           type="text"
           id="name"
           placeholder="Enter Name"
-          onChange={handleName}
-          value={name}
         />
-        <span className={nameErr?"error" :null}>{nameErr}</span><br /><br />
+        <br /><br />
 
         <label htmlFor="Pass">Password : </label>
         <input
-          className={passErr?"errorbox" :null}
+          name='Pass'
           type="text"
           id="Pass"
           placeholder="Enter Password"
-          onChange={handlePass}
-          value={pass}
         />
-        <span className={passErr?"error" :null}>{passErr}</span>
         <br /><br />
 
-        <button disabled={Boolean(nameErr) || Boolean(passErr)|| name && pass?false:true}>Submit</button>
+        <button >Submit</button>
       </form>
 
-      <h1>Name : {name}</h1>
-      <h1>Password : {pass}</h1>
     </>
   )
 }
