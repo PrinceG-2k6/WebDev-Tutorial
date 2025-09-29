@@ -34,7 +34,7 @@ function App() {
       <form>
         <label htmlFor="name">Name : </label>
         <input
-          
+          className={nameErr?"errorbox" :null}
           type="text"
           id="name"
           placeholder="Enter Name"
@@ -45,7 +45,7 @@ function App() {
 
         <label htmlFor="Pass">Password : </label>
         <input
-          
+          className={passErr?"errorbox" :null}
           type="text"
           id="Pass"
           placeholder="Enter Password"
@@ -55,7 +55,7 @@ function App() {
         <span className={passErr?"error" :null}>{passErr}</span>
         <br /><br />
 
-        <button disabled={Boolean(nameErr) || Boolean(passErr)|| name && pass?null:true}>Submit</button>
+        <button disabled={Boolean(nameErr) || Boolean(passErr)|| name && pass?false:true}>Submit</button>
       </form>
 
       <h1>Name : {name}</h1>
