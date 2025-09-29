@@ -1,0 +1,9 @@
+.error{
+    color: Red;
+    font-size: 20px;
+    font-weight: 800;
+}
+.errorbox{
+    outline: red;
+    border: 2px solid red;
+}
