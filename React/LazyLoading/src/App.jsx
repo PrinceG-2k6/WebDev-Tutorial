@@ -15,7 +15,7 @@ function App() {
         <h1>Lazy Loading</h1>
         <button onClick={() => setLoad(true)}>Load user</button>
         {
-          load ? <Suspense fallback={<h3>Loading.....</h3>}></Suspense> : null
+          load ? <Suspense fallback={<h3>Loading.....</h3>}><User/></Suspense> : null
         }
       </div>
     </>
