@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Header/>
-      <button className='add clear' onClick={()=>dispatch(clearAllItem(1))}>Clear Cart</button>
+      <button className='btn clear' onClick={()=>dispatch(clearAllItem(1))}>Clear Cart</button>
       <Product/>
     </>
   )
