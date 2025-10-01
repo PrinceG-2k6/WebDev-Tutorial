@@ -2,12 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Header from './Header'
+import Product from './Product'
 
 function App() {
 
   return (
     <>
-      <h1>Redux ToolKit With React JS</h1>
+      <Header/>
+      <Product/>
     </>
   )
 }
