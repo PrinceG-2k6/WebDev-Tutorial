@@ -2,7 +2,7 @@ import './App.css'
 import React from 'react'
 import { useDispatch } from "react-redux"
 import AddtoCart from './AddtoCart';
-import { addItem } from './redux/slice';
+import { addItem, removeItem } from './redux/slice';
 
 const Product = () => {
 
@@ -19,15 +19,16 @@ const Product = () => {
         <h3>Product 1</h3>
         <p>High quality product description goes here.</p>
         <div className="price">$20</div>
-        <button onClick={()=>dispatch(addItem(1))}><i className="fas fa-cart-plus"></i> Add to Cart</button>
+        <button className='add' onClick={()=>dispatch(addItem(1))}> Add to Cart</button>
+        <button className='add remove' onClick={()=>dispatch(removeItem(1))}> Remove From Cart</button>
       </div>
 
-      <div className="product-card">
+      {/* <div className="product-card">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStiEUMgaHL1Qg40AdlJU2iIgwnjFyKyzeY6g&s" alt="Product 2"/>
         <h3>Product 2</h3>
         <p>Stylish and durable product for daily use.</p>
         <div className="price">$35</div>
-        <button onClick={()=>dispatch(addItem(1))}><i className="fas fa-cart-plus"></i> Add to Cart</button>
+        <button onClick={()=>dispatch(addItem(2))}> Add to Cart</button>
       </div>
 
       <div className="product-card">
@@ -35,7 +36,7 @@ const Product = () => {
         <h3>Product 3</h3>
         <p>Latest design with premium quality.</p>
         <div className="price">$50</div>
-        <button onClick={()=>dispatch(addItem(1))}><i className="fas fa-cart-plus"></i> Add to Cart</button>
+        <button onClick={()=>dispatch(addItem(3))}> Add to Cart</button>
       </div>
 
       <div className="product-card">
@@ -43,8 +44,8 @@ const Product = () => {
         <h3>Product 4</h3>
         <p>Comfortable and trendy product choice.</p>
         <div className="price">$28</div>
-        <button onClick={()=>dispatch(addItem(1))}><i className="fas fa-cart-plus"></i> Add to Cart</button>
-      </div>
+        <button onClick={()=>dispatch(addItem(4))}> Add to Cart</button>
+      </div> */}
 
     </div>
   </section>

@@ -131,7 +131,7 @@ body {
       margin-bottom: 12px;
     }
 
-    .product-card button {
+    .add {
       background: #2c3e50;
       color: white;
       border: none;
@@ -145,7 +145,7 @@ body {
     .product-card button:hover {
       background: #f39c12;
     }
-
+    
     /* Responsive */
     @media (max-width: 768px) {
       header {
@@ -163,4 +163,20 @@ body {
         margin-top: 10px;
         align-self: flex-end;
       }
+    }
+
+
+    .remove{
+      background-color: rgb(200, 58, 58);
+      margin-left: 20px;
+    }
+
+    .clear{
+      background-color: green;
+      margin-left: 50%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .clear:hover{
+      background-color: rgb(3, 55, 3);
     }
