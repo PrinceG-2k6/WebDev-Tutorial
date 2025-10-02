@@ -15,6 +15,9 @@ const Product = () => {
     const productSelector =  useSelector((state)=>state.products.items)
     console.log(productSelector)
 
+    const cartSelector = useSelector((state)=>state.cart.items);
+        console.log(cartSelector.length);
+
   return (
     <div className='grid'>
       {
@@ -27,7 +30,7 @@ const Product = () => {
               <div className="price">Price: {item.price}</div>
               <div className="rating">Rating: {item.rating}</div>
 
-              <button className='btn'>Add To Cart</button>
+              <button onClick={()=>dispatch(addItem(item))} className='btn'>Add To Cart</button>
             </div>
           </div>
         )):null

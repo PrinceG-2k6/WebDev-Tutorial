@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <Header/>
-      <button className='btn clear' onClick={()=>dispatch(clearAllItem(1))}>Clear Cart</button>
       <Product/>
     </>
   )
