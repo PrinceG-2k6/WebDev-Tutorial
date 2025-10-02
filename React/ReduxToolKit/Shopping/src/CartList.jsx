@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem, updateQuantity } from './redux/slice';
 import './App.css'
 
 const CartList = () => {
+
+
   const dispatch = useDispatch();
   const cartSelector = useSelector((state) => state.cart.items);
 
