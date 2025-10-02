@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem, updateQuantity } from './redux/slice';
+import { clearAllItem, removeItem, updateQuantity } from './redux/slice';
 import './App.css'
+import { useNavigate } from 'react-router-dom';
 
 const CartList = () => {
-
+    const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const cartSelector = useSelector((state) => state.cart.items);
@@ -13,6 +14,13 @@ const CartList = () => {
     let quantity = parseInt(q) > 1 ? parseInt(q) : 1;
     dispatch(updateQuantity({ id, quantity }));
   };
+
+  const handlePlaceOrder =()=>{
+    localStorage.clear();
+    dispatch(clearAllItem())
+    alert("Your Order Placed\nThanks\nShop Again")
+    navigate("/");
+  }
 
   return (
     <div className='cart-container'>
@@ -69,6 +77,7 @@ const CartList = () => {
           )
         ).toFixed(2)}
       </div>
+      <button className='btn' onClick={handlePlaceOrder}>Place Order</button>
     </div>
   );
 };
