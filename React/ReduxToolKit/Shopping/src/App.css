@@ -246,3 +246,10 @@ nav ul li a:hover {
     padding: 20px;
   }
 }
+
+.btn-disable{
+  background-color: gainsboro;
+}
+.btn-disable:hover{
+  background-color: gainsboro;
+}
