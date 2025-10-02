@@ -254,3 +254,35 @@ nav ul li a:hover {
 .btn-disable:hover{
   background-color: gainsboro;
 }
+
+.cart-container{
+  max-width:800px ;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 8px 4px 10px rgba(0,0,0,0.1);
+}
+.card-Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+}
+
+.cart-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-footer{
+  text-align: right;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: green;
+}
