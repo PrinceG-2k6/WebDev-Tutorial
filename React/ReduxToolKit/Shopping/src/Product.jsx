@@ -26,7 +26,7 @@ const Product = () => {
             <div className="content">
               <div className="title">{item.title}</div>
               <div className="brand">{item.brand}</div>
-              <div className="price">Price: {item.price}</div>
+              <div className="price">Price: $ {item.price}</div>
               <div className="rating">Rating: {item.rating}</div>
               {
                 cartSelector.find(cartItem=>cartItem.id==item.id)?

@@ -298,11 +298,12 @@ nav ul li a:hover {
   text-align: right;
 }
 
-.item-actions .price{
+ .item-price{
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
+  color: green;
 }
 
 .cart-footer{
