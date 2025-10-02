@@ -7,4 +7,5 @@ It uses knowledge of :
 Redux Toolkit
 API
 localStorage
+Routing
 
