@@ -7,16 +7,7 @@ const UserAdd = () => {
     const [email,setEmail]=useState("");
     const url = "http://localhost:3000/users";
 
-    const createUser =async()=>{
-        let response = await fetch(url,{
-            method:'Post',
-            body:JSON.stringify({name,email,age})
-        });
-        response = await response.json();
-        if(response){
-            alert("New User Added");
-        }
-    }
+    
 
   return (
     <div style={{textAlign:"center"}} >
