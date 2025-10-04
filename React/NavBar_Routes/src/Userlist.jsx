@@ -13,7 +13,7 @@ const Userlist = () => {
     ]
   return (
     <div style={{marginLeft:20}}>
-        <h1>User List</h1>
+        <h1>Users List</h1>
         {
             UserData.map((user)=>(
                 <div key={user.id}>
