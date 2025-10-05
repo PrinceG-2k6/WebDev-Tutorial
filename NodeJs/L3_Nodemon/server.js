@@ -13,4 +13,10 @@ http.createServer((req,resp)=>{
     resp.end('Hello World\n');
 }).listen(4800);
 
+http.createServer((req,resp)=>{
+    resp.writeHead(200,{'Content-Type':'text/html'});
+    resp.write('<h1>Hello This Is Prince gupta On Different LocalHost</h1>')
+    resp.end('Hello World\n');
+}).listen(5800);
+
 // nodemon server.js(in terminal)
