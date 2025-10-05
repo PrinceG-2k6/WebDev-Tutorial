@@ -1,0 +1,23 @@
+{
+  "name": "node2025",
+  "version": "1.0.0",
+  "description": "hi this is creation of json package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrinceG-2k6/WebDev-Tutorial.git"
+  },
+  "author": "prince gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrinceG-2k6/WebDev-Tutorial/issues"
+  },
+  "homepage": "https://github.com/PrinceG-2k6/WebDev-Tutorial#readme",
+  "dependencies": {
+    "color.js": "^1.2.0"
+  }
+}
