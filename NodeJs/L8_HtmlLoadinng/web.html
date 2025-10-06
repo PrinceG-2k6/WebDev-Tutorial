@@ -7,6 +7,14 @@
 </head>
 <body>
     <h1>This is HTML FILE</h1>
-    <input type="text" name="text" id="text" placeholder="Enter Name">
+    <form method="post" action="/submit" style="display: flex; flex-direction: column; max-width: 300px;">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <button type="submit" style="margin-top: 10px;">SUBMIT</button>
+    </form>
 </body>
 </html>
