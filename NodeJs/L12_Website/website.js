@@ -19,8 +19,15 @@ http.createServer((req, resp) => {
     } 
 
     // ================
-    if (req.url === "/") {
-        fs.readFile("./index.html", "utf-8", (err, data) => {
+
+    let file ="/index"
+    if(req.url!="/"){
+        file = req.url;
+    }
+    // console.log("."+file+".html");
+
+    if (req.url != "/style.css") {
+        fs.readFile("."+file+".html", "utf-8", (err, data) => {
             if (err) {
                 resp.writeHead(500, { "Content-Type": "text/plain" });
                 resp.end("Internal Server Error\n");
@@ -30,7 +37,7 @@ http.createServer((req, resp) => {
             resp.writeHead(200, { "Content-Type": "text/html" });
             resp.end(collectHeaderData+""+data);
         });
-    } else if (req.url === "/style.css") {
+    } else if (req.url == "/style.css") {
         fs.readFile("./style.css", "utf-8", (err, data) => {
             if (err) {
                 resp.writeHead(404, { "Content-Type": "text/plain" });
