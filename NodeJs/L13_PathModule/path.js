@@ -7,5 +7,5 @@ const file ="./peter.txt"
 // console.log(path.isAbsolute(file));
 
 
-// console.log(__dirname);
-// console.log(__filename);
+console.log(__dirname);
+console.log(__filename);
