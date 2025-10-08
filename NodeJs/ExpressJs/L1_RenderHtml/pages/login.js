@@ -5,5 +5,6 @@ export default function login(){
     <br>
     <input type="password" name="password" id="password" placeholder=" Enter password">
     <br><br><button>Login</button>
-</form>`
+</form><br>
+<a href='/'>Go to Home</a>`
 }
