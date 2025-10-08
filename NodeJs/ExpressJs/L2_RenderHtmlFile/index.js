@@ -1,9 +1,11 @@
 import express from "express"
 import path from "path"
-
+const app=express();
 const absPath = path.resolve("./View")
+const publicPath = path.resolve('public')
 
-const app=express()
+app.use(express.static(publicPath));
+
 app.get("/",(req,resp)=>{
     resp.sendFile(absPath+"/home.html")
 })
