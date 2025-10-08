@@ -1,20 +1,19 @@
 import express from "express"
 import path from "path"
 
-
+const absPath = path.resolve("./View")
 
 const app=express()
 app.get("/",(req,resp)=>{
-    const absPath = path.resolve("./View/home.html")
-    resp.sendFile(absPath)
+    resp.sendFile(absPath+"/home.html")
 })
 app.get("/login",(req,resp)=>{
-    const absPath = path.resolve("./View/login.html")
-    resp.sendFile(absPath)
+    resp.sendFile(absPath+"/login.html")
 })
 app.post("/submit",(req,resp)=>{
-    const absPath = path.resolve("./View/submit.html")
-    resp.sendFile(absPath)
+    resp.sendFile(absPath+"/submit.html")
 })
-
+app.use((req,resp)=>{
+    resp.status(404).sendFile(absPath+"/page404.html")
+})
 app.listen(4800)
