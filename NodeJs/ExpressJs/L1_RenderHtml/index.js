@@ -1,5 +1,5 @@
 import express from "express"
-import home from "../pages/home.js"
+import home from "./pages/home.js"
 import login from "./pages/login.js"
 import submit from "./pages/submit.js"
 
