@@ -40,7 +40,7 @@ app.get("/login", (req, resp) => {
 });
 app.get("/admin", AgeCheck, (req, resp) => {
   resp.send("<h1>Admin page</h1>");
-});
+}); 
 app.use((req, resp) => {
   resp.status(404).send("Page Not Found");
 });
