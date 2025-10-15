@@ -1,23 +1,27 @@
 import express from "express"
 import path from "path"
 const app=express();
-const absPath = path.resolve("./View")
-const publicPath = path.resolve('public')
-
-
-
-
-
-app.use(express.static(publicPath));
+app.use(express.static('public'))
 
 app.get("/",(req,resp)=>{
-    resp.sendFile(absPath+"/home.html")
-})
+    let filePath = path.resolve("View/home.html");
+    resp.sendFile(filePath)
+}) 
+
+app.use(express.urlencoded({extended:false}))
 app.get("/login",(req,resp)=>{
-    resp.sendFile(absPath+"/login.html")
-})
+    resp.send(`
+        <form action="submit" method="post">
+        <input type="text" name="name" id="name" placeholder="Enter name"/><br>
+        <input type="password" name="password" id="password" placeholder="Enter password"/>
+
+        <br>
+        <button>Submit</button>
+        </form>`)
+});
 app.post("/submit",(req,resp)=>{
-    resp.sendFile(absPath+"/submit.html")
+    console.log("The User Details is :" ,req.body)
+    resp.send("<h1>Submitted</h1>")
 })
 app.use((req,resp)=>{
     resp.status(404).sendFile(absPath+"/page404.html")
