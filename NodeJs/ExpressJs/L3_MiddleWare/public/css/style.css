@@ -1,0 +1,96 @@
+/* Add this to your existing style.css (appends to the file) */
+
+/* Center page and make form look like a card */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px;
+}
+
+/* Card-like form */
+form {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(15,23,42,0.08);
+    border: 1px solid rgba(15,23,42,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Heading inside the form */
+form > h1,
+h1 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(15,23,42,0.08);
+    background: #fff;
+    font-size: 1rem;
+    color: inherit;
+    outline: none;
+    box-shadow: inset 0 1px 2px rgba(15,23,42,0.03);
+    transition: border-color .12s ease, box-shadow .12s ease, transform .06s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: var(--muted);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px rgba(11,117,239,0.08);
+    transform: translateY(-1px);
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    padding: 10px 16px;
+    font-weight: 600;
+    color: var(--accent-contrast);
+    background: var(--accent);
+    border-radius: 8px;
+    border: 1px solid rgba(11,117,239,0.12);
+    box-shadow: 0 6px 18px rgba(11,117,239,0.14);
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    text-align: center;
+}
+
+button:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(11,117,239,0.16); }
+button:active { transform: translateY(0); }
+button:focus { outline: 3px solid rgba(11,117,239,0.18); outline-offset: 3px; }
+
+/* Link below the form */
+form + a,
+a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+a:hover { text-decoration: underline; }
+
+/* Small screens */
+@media (max-width: 420px) {
+    form { padding: 20px; }
+    h1 { font-size: 1.25rem; }
+}
