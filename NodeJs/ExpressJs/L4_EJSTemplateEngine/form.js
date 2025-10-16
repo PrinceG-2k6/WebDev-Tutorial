@@ -13,6 +13,6 @@ app.post("/submit-user",(req,resp)=>{
 })
 app.get("/users",(req,resp)=>{
     const users = ['Prince' , 'Sanjay' , 'Ayush' ,'Bruce']
-    resp.render('users',{users:users,isLogin:true});
+    resp.render('users',{users:users,isLogin:false});
 })
 app.listen(4800)
