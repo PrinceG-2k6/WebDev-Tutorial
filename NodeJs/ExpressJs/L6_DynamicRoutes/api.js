@@ -12,6 +12,13 @@ app.get("/user/:id",(req,resp)=>{
     let filterData = userData.filter((user)=>user.id==id)
     resp.send(filterData);
 })
+app.get("/userage/:age",(req,resp)=>{
+    console.log(req.params.age);
+    const age =req.params.age;
+
+    let filterData = userData.filter((user)=>user.age.toLowerCase()==age.toLowerCase())
+    resp.send(filterData);
+})
 app.get("/username/:name",(req,resp)=>{
     console.log(req.params.name);
     const name =req.params.name;
@@ -19,4 +26,5 @@ app.get("/username/:name",(req,resp)=>{
     let filterData = userData.filter((user)=>user.name.toLowerCase()==name.toLowerCase())
     resp.send(filterData);
 })
+
 app.listen(4800)
