@@ -11,4 +11,8 @@ app.get("/add-user",(req,resp)=>{
 app.post("/submit-user",(req,resp)=>{
     resp.render('submitUser',req.body);
 })
+app.get("/users",(req,resp)=>{
+    const users = ['Prince' , 'Sanjay' , 'Ayush' ,'Bruce']
+    resp.render('users',{users:users});
+})
 app.listen(4800)
