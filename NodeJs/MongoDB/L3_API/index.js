@@ -8,17 +8,22 @@ const dbname ="school";
 const url = "mongodb://localhost:27017"
 const client = new MongoClient(url);
 
+client.connect().then((connection)=>{
+    const db =connection.db(dbname);
 
-
-app.get("/",async(_,resp)=>{
-    
-        await client.connect();
-        const db = client.db(dbname);
+    app.get('/api',async (req,resp)=>{
         const collection = db.collection("students"); 
         let students = await collection.find().toArray();
-        console.log(students);
-    
+        resp.send(students)
+    })
 
-    resp.render('students',{students});
+    app.get('/ui',async (req,resp)=>{
+        const collection = db.collection("students"); 
+        let students = await collection.find().toArray();
+        resp.render('students',{students})
+    })
 })
+
+
+
 app.listen(4800)
