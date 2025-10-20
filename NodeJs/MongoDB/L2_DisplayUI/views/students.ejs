@@ -7,5 +7,19 @@
 </head>
 <body>
     <h1>Student Data will be Here</h1>
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Email</td>
+        </tr>
+        <% students.forEach(Student=>{ %>
+            <tr>
+                <td><%= Student.name  %></td>
+                <td><%= Student.age  %></td>
+                <td><%= Student.email  %></td>
+            </tr>
+            <% }) %>
+    </table>
 </body>
 </html>

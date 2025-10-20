@@ -10,16 +10,14 @@ const client = new MongoClient(url);
 
 
 app.get("/",async(_,resp)=>{
-    try {
+    
         await client.connect();
         const db = client.db(dbname);
         const collection = db.collection("students"); 
-        const result = await collection.find().toArray();
-        console.log(result);
-    } catch (error) {
-        console.error("Error connecting to the database:", error);
-    }
+        let students = await collection.find().toArray();
+        console.log(students);
+    
 
-    resp.render('students');
+    resp.render('students',{students});
 })
 app.listen(4800)
