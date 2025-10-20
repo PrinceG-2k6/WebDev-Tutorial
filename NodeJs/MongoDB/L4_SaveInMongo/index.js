@@ -28,10 +28,10 @@ client.connect().then((connection)=>{
         // let students = await collection.find().toArray();
         resp.render('form')
     })
-    app.post('/addStudent', (req,resp)=>{
+    app.post('/addStudent', async(req,resp)=>{
         
         const collection = db.collection("students"); 
-        const result = collection.insertOne(req.body);
+        const result = await collection.insertOne(req.body);
         console.log(result)
         resp.render('addStudent')
     })
