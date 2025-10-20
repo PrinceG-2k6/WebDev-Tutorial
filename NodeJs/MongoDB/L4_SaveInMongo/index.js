@@ -8,6 +8,7 @@ const dbname ="school";
 const url = "mongodb://localhost:27017"
 const client = new MongoClient(url);
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 client.connect().then((connection)=>{
     const db =connection.db(dbname);
@@ -34,6 +35,14 @@ client.connect().then((connection)=>{
         const result = await collection.insertOne(req.body);
         console.log(result)
         resp.render('addStudent')
+    })
+    
+    app.post('/addStudent-api',async(req,resp)=>{
+        
+        console.log(req.body)
+        const collection = db.collection("students"); 
+        const result = await collection.insertOne(req.body);
+        resp.send({"message":req.body})
     })
 })
 
