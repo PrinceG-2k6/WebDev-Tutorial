@@ -40,9 +40,14 @@ client.connect().then((connection)=>{
     app.post('/addStudent-api',async(req,resp)=>{
         
         console.log(req.body)
+        const {name,age,email} =req.body;
+        if(name && age && email){
         const collection = db.collection("students"); 
         const result = await collection.insertOne(req.body);
-        resp.send({"message":req.body})
+        resp.send({"message":result})}
+        else{
+            resp.send({"message":"Operation Failed"})
+        }
     })
 })
 
