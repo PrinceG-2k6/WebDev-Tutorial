@@ -79,7 +79,7 @@ client.connect().then((connection)=>{
         }
         else{
             resp.send({
-                message:"Student Data Not deleted",
+                message:"Student Data Not Fetched",
                 sucess: false
             })
         }
@@ -101,6 +101,42 @@ client.connect().then((connection)=>{
         const collection = db.collection("students"); 
         let result = await collection.findOne({_id: new ObjectId(req.params.id)});
         resp.render('update',{result});
+    })
+    app.post('/ui/update/:id',async (req,resp)=>{
+        console.log(req.body)
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        const filter ={_id:new ObjectId(req.params.id)};
+        const update ={$set:req.body}
+        let result = await collection.updateOne(filter, update);
+        if(result){
+            resp.send("Data Update")
+        }
+        else{
+            resp.send("Data Not Update")
+        }
+    })
+    app.put('/update/:id',async (req,resp)=>{
+        console.log(req.body)
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        const filter ={_id:new ObjectId(req.params.id)};
+        const update ={$set:req.body}
+        let result = await collection.updateOne(filter, update);
+        if(result){
+            resp.send({
+                message:"Student Data Updated",
+                sucess: true,
+                result:result
+            })
+        }
+        else{
+            resp.send({
+                message:"Student Data Not Updated",
+                sucess: true,
+                result:result
+            })
+        }
     })
 })
 
