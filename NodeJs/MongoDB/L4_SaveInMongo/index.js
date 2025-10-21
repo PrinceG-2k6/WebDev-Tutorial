@@ -66,7 +66,7 @@ client.connect().then((connection)=>{
             })
         }
     })
-    app.delete('/update/:id',async (req,resp)=>{
+    app.get('/student/:id',async (req,resp)=>{
         console.log(req.params.id)
         const collection = db.collection("students"); 
         let result = await collection.findOne({_id: new ObjectId(req.params.id)});
@@ -96,7 +96,7 @@ client.connect().then((connection)=>{
             resp.send("Student Record Not Deleted");
         }
     })
-    app.get('/ui/update/:id',async (req,resp)=>{
+    app.get('/ui/student/:id',async (req,resp)=>{
         console.log(req.params.id)
         const collection = db.collection("students"); 
         let result = await collection.findOne({_id: new ObjectId(req.params.id)});
