@@ -1,5 +1,5 @@
 import express from 'express'
-import {MongoClient} from 'mongodb'
+import {MongoClient, ObjectId} from 'mongodb'
 
 const app = express();
 app.set("view engine","ejs")
@@ -47,6 +47,23 @@ client.connect().then((connection)=>{
         resp.send({"message":result})}
         else{
             resp.send({"message":"Operation Failed"})
+        }
+    })
+    app.delete('/delete/:id',async (req,resp)=>{
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        let result = await collection.deleteOne({_id: new ObjectId(req.params.id)});
+        if(result){
+            resp.send({
+                message:"Student Data deleted",
+                sucess: true
+            })
+        }
+        else{
+            resp.send({
+                message:"Student Data Not deleted",
+                sucess: false
+            })
         }
     })
 })
