@@ -127,14 +127,14 @@ client.connect().then((connection)=>{
             resp.send({
                 message:"Student Data Updated",
                 sucess: true,
-                result:result
+                result:req.body
             })
         }
         else{
             resp.send({
                 message:"Student Data Not Updated",
                 sucess: true,
-                result:result
+                result:null
             })
         }
     })
