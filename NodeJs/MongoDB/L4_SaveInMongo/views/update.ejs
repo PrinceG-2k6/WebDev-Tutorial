@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Page</title>
+</head>
+<body>
+    <h1>Update The Student Details</h1>
+    <form action="" method="">
+        <table border="1" cellspacing="0">
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" value="<%= result.name %>" name="name" id="name"></td>
+        </tr>
+        <tr>
+            <td><label for="age">Age :</label></td>
+            <td><input type="number" value="<%= result.age %>" name="age" id="age"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email :</label></td>
+            <td><input type="email" value="<%= result.email %>" name="email" id="email"></td>
+        </tr>
+    </table>
+    <button>Update</button>
+    </form>
+</body>
+</html>

@@ -66,6 +66,24 @@ client.connect().then((connection)=>{
             })
         }
     })
+    app.delete('/update/:id',async (req,resp)=>{
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        let result = await collection.findOne({_id: new ObjectId(req.params.id)});
+        if(result){
+            resp.send({
+                message:"Student Data Fetched",
+                sucess: true,
+                result:result
+            })
+        }
+        else{
+            resp.send({
+                message:"Student Data Not deleted",
+                sucess: false
+            })
+        }
+    })
 
     app.get('/ui/delete/:id',async (req,resp)=>{
         console.log(req.params.id)
@@ -77,6 +95,12 @@ client.connect().then((connection)=>{
         else{
             resp.send("Student Record Not Deleted");
         }
+    })
+    app.get('/ui/update/:id',async (req,resp)=>{
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        let result = await collection.findOne({_id: new ObjectId(req.params.id)});
+        resp.render('update',{result});
     })
 })
 
