@@ -66,6 +66,18 @@ client.connect().then((connection)=>{
             })
         }
     })
+
+    app.get('/ui/delete/:id',async (req,resp)=>{
+        console.log(req.params.id)
+        const collection = db.collection("students"); 
+        let result = await collection.deleteOne({_id: new ObjectId(req.params.id)});
+        if(result){
+            resp.send("Student Record Deleted");
+        }
+        else{
+            resp.send("Student Record Not Deleted");
+        }
+    })
 })
 
 
